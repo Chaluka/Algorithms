@@ -11,6 +11,7 @@ class Stack(ABC, Generic[T]):
 
     def __init__(self)->None:
         self.length = 0
+        
     @abstractmethod
     def push(self, item:T)->None:
         pass
@@ -36,9 +37,3 @@ class Stack(ABC, Generic[T]):
     def clear(self)->None:
         self.length = 0
 
-
-
-
-
-def func(s: Stack[T]):
-    return s
