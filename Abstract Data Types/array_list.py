@@ -3,6 +3,12 @@ from my_list import List, T
 from referential_array import ArrayR
 
 class ArrayList(List[T]):
+    """
+        Array implementation of the List class.
+        This use an array to store items and self.length pointer tells you 
+        the currect index for insertion. The List is full when the array is full.
+    """
+
     MIN_CAPACITY = 1
 
     def __init__(self, max_capacity:int)->None:
@@ -17,13 +23,23 @@ class ArrayList(List[T]):
         self.array[index] = value
 
     def index(self, item: T) -> int:
+        """
+            Return the index of the first occcurance of the given item in the list
+
+            Raises:
+                ValueError: when item is not in the list
+        """
         for i in range(len(self)):
             if item == self.array[i]:
                 return i
 
         raise ValueError("item not in list")
 
-    def delete_at_index(self, index: int) -> T:
+    def delete_at_index(self, index: int) -> None:
+        """
+            Delete the element at the given index. 
+            And shuffle all elements to the right by one position
+        """
         item = self.array[index]
         self.length -= 1
         for i in range(index, self.length):
