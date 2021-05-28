@@ -1,13 +1,12 @@
-
+"""     An array implementation of stack. This uses an array to store the 
+        elements and push/pop operations are done using direct addressing 
+        with the help of a pointer points to the top of the stack.
+"""
 
 from stack import Stack,T
 from referential_array import ArrayR
 
 class ArrayStack(Stack[T]):
-    """ An array implementation of stack. This uses an array to store the elements and 
-        push/pop operations are done using direct addressing with the help of a pointer points 
-        to the top of the stack.
-    """
 
     MIN_CAPACITY = 1
 

@@ -1,23 +1,22 @@
+"""
+        The array implementation of the List class. This use an array to store 
+        items and self.length pointer tells you the currect index for insertion. 
+        When the array is full it double the size of the array by creating a new array.
+"""
 
 from my_list import List, T
 from referential_array import ArrayR
 
+
 class ArrayList(List[T]):
-    """
-        Array implementation of the List class.
-        This use an array to store items and self.length pointer tells you 
-        the currect index for insertion. When the array is full it double 
-        the size of the array by creating a new array.
-    """
 
     MIN_CAPACITY = 1
 
-    def __init__(self, max_capacity:int)->None:
+    def __init__(self, max_capacity: int) -> None:
         List.__init__(self)
-        self.array = ArrayR(max(self.MIN_CAPACITY,max_capacity))
+        self.array = ArrayR(max(self.MIN_CAPACITY, max_capacity))
 
-
-    def __getitem__(self, index:int)->T:
+    def __getitem__(self, index: int) -> T:
         return self.array[index]
 
     def __setitem__(self, index: int, value: T) -> None:
@@ -46,12 +45,10 @@ class ArrayList(List[T]):
         for i in range(index, self.length):
             self.array[i] = self.array[i + 1]
 
-
-
     def __newsize(self):
         return 2*len(self)
 
-    def insert(self, index:int, item:T)->None:
+    def insert(self, index: int, item: T) -> None:
         if len(self) == len(self.array):
             new_array = ArrayR(self.__newsize())
             for i in range(len(self)):
@@ -64,7 +61,7 @@ class ArrayList(List[T]):
 
     def __str__(self):
         lst_str = "[" + str(self.array[0])
-        for i in range(1,len(self)):
-              lst_str += "," +str(self.array[i])
+        for i in range(1, len(self)):
+            lst_str += "," + str(self.array[i])
 
         return lst_str + "]"
