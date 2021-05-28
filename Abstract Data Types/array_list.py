@@ -6,7 +6,8 @@ class ArrayList(List[T]):
     """
         Array implementation of the List class.
         This use an array to store items and self.length pointer tells you 
-        the currect index for insertion. The List is full when the array is full.
+        the currect index for insertion. When the array is full it double 
+        the size of the array by creating a new array.
     """
 
     MIN_CAPACITY = 1

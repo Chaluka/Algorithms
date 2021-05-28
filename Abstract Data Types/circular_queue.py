@@ -3,6 +3,13 @@ from my_queue import Queue, T
 from referential_array import ArrayR
 
 class CircularQueue(Queue[T]):
+    """
+        This is a variant of queue implemenatations called circular queue. The difference between 
+        this and a normal queue is the front and rear ends move in circular manner. Basically, 
+        the rear end connected back to the front end making a circle. Hence, the rear end can appear 
+        before the front end in the flat queue and vice versa. This structure utilize the memory by 
+        this circular movements of the two ends. 
+    """
 
     MIN_CAPACITY = 1
 
@@ -26,6 +33,7 @@ class CircularQueue(Queue[T]):
 
         self.array[self.rear] = item
         self.length += 1
+        # use modular (%) to pount the rear pointer back to position 0 after the last (nth) position
         self.rear = (self.rear +1) % len(self.array)
 
     def serve(self) ->T:
