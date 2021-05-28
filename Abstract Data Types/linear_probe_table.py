@@ -6,7 +6,9 @@
     are the important features that you must be aware of before importing this module.
     
     Probing - linear probing is used to resolve the collisions in the table.
-    Rehashing - when the number of elements exceeds the load factor, table size is doubled 
+    Load Factor - number of elements in the table/ total size of the table
+    Rehashing - when the number of elements exceeds the load factor 
+                (its 2/3 in this implementation), table size is doubled 
                 and all values are rehashed.
      
 
@@ -21,7 +23,7 @@ __date__ = "7-May-2020"
 __updated__ = "27-Jun-2021"
 __version__ = "1.0"
 
-from my_referential_array import ArrayR
+from referential_array import ArrayR
 import copy
 from sympy import isprime
 from typing import TypeVar, Generic
